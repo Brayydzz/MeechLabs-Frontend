@@ -1,85 +1,80 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 
-export const Nav = styled.nav `
-    background: #000;
-    height: 80px;
-    /* margin-top: -80px; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-
-    @media screen and (max-width: 960px) {
-        transition: 0.8s all ease;
-    }
+export const Header = styled.header`
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
 `
 
-export const NavContainer = styled.div `
-    display: flex;
-    justify-content: space-between;
-    height: 80px;
-    z-index: 1;
-    width: 100%;
-    padding: 0 24px;
-    max-width: 1100px;
+export const Nav = styled.nav`
+  max-width: 968px;
+  display: flex;
+  height: 3rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+
+  @media screen and (max-width: 350px) {
+  }
+`
+
+export const NavList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
 `
 
 export const NavLogo = styled(Link)`
-    color: #fff;
-    justify-self: flex-start;
-    cursor: pointer;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    margin-left: 24px;
-    font-weight: bold;
-    text-decoration: none;
+  &:hover {
+    color: red;
+  }
 `
 
-export const MobileIcon = styled.div `
-    display: none;
-
-    @media screen and (max-width: 768px) {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-100%, 60%);
-        font-size: 1.8rem;
-        cursor: pointer;
-        color: #fff;
-    }
+export const NavToggle = styled.div`
+  cursor: pointer;
+  display: ${({ toggle }) => (!toggle ? "block" : "none")};
+  font-size: 1.1rem;
+  &:hover {
+    color: red;
+  }
 `
 
-export const NavMenu = styled.ul `
-    display: flex;
-    align-items: center;
-    list-style: none;
-    text-align: center;
-
-    @media screen and (max-width: 768px) {
-        display: none;
-    }
+export const NavMenu = styled.div`
+  @media screen and (max-width: 767px) {
+    position: fixed;
+    bottom: ${({ toggle }) => (toggle ? "0" : "-100%")};
+    left: 0;
+    width: 100%;
+    padding: 2rem 1.5rem 4rem;
+    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 1.5rem 1.5rem 0 0;
+    transition: 0.3s;
+  }
 `
 
-export const NavItem = styled.li `
-    height: 80px;
-`
+export const NavItem = styled.li``
 
 export const NavLink = styled(Link)`
-    color: #fff;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 0 1rem;
-    height: 100%;
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    &.active {
-        border-bottom: 3px solid red;
-    }
+  &:hover {
+    color: red;
+  }
+`
+export const NavClose = styled.div`
+  position: absolute;
+  right: 1.3rem;
+  bottom: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  &:hover {
+    color: red;
+  }
 `

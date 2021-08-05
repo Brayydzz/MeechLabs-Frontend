@@ -8,6 +8,7 @@ import {
   NavList,
   NavClose,
   Header,
+  Logo,
 } from "./NavbarStyle"
 import {
   FaBars,
@@ -30,30 +31,32 @@ const Navbar = () => {
   return (
     <Header>
       <Nav>
-        <NavLogo to="/">yeet</NavLogo>
+        <NavLogo to="/">
+          <Logo src="images/meechlogo.png" />
+        </NavLogo>
         <NavMenu toggle={toggle}>
           <NavList>
             <NavItem>
               <NavLink to="/" onClick={handleToggle}>
-                <FaHome />
+                <FaHome className="icon" />
                 Home
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink to="/products" onClick={handleToggle}>
-                <FaTshirt />
+                <FaTshirt className="icon" />
                 All Products
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink to="/limited" onClick={handleToggle}>
-                <FaShirtsinbulk />
+                <FaShirtsinbulk className="icon" />
                 Limited Products
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink to="/about" onClick={handleToggle}>
-                <FaPortrait />
+                <FaPortrait className="icon" />
                 About Us
               </NavLink>
             </NavItem>
